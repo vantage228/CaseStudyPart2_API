@@ -25,17 +25,17 @@ namespace CaseStudyPart2.ViewRepository
 
             IQueryable<View> query = _dbContext.vuMergeData;
 
-            // Apply date filter if provided
+            // Applying date filter
             if (asOfDate.HasValue)
             {
                 query = query.Where(v => v.AsOfDate.HasValue &&
                                          v.AsOfDate.Value == DateOnly.FromDateTime(asOfDate.Value));
             }
 
-            // Apply pagination
+            // Applying pagination
             return query
-                .Skip((pageNumber - 1) * pageSize) // Skip records for previous pages
-                .Take(pageSize)                   // Take only the records for the current page
+                .Skip((pageNumber - 1) * pageSize) 
+                .Take(pageSize)                   
                 .ToList();
         }
 

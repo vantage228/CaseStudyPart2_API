@@ -12,7 +12,9 @@ namespace Part2_WebApi
             var builder = WebApplication.CreateBuilder(args);
 
             builder.Services.AddTransient<IView, ViewOperations>();
-            var connStr = "Data Source = 192.168.0.13\\sqlexpress,49753; Initial Catalog = IVP_O_S_CS; user Id = sa; Password = sa@12345678; TrustServerCertificate = True";
+
+            var connStr = builder.Configuration.GetConnectionString("DefaultConnection");
+
             builder.Services.AddDbContext<ApplicationDBContext>(
                 options => options.UseSqlServer(connStr)
                 );

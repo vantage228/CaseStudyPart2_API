@@ -16,7 +16,6 @@ namespace CaseStudyPart2.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
-            optionsBuilder.UseSqlServer("Data Source = 192.168.0.13\\sqlexpress,49753; Initial Catalog = IVP_O_S_CS; user Id = sa; Password = sa@12345678; TrustServerCertificate = True");
         }
         public DbSet<View> vuMergeData { get; set; }
 
